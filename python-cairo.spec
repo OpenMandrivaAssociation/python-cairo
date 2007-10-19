@@ -1,62 +1,58 @@
-%define libname pycairo
+%define oname pycairo
 
-%define build_bootstrap 0
-
-%{expand: %{?_without_bootstrap: %%global build_bootstrap 0}}
-%{expand: %{?_with_bootstrap:        %%global build_bootstrap 1}}
-
-Summary: A python wrapper for the Cairo libraries
-Name: python-cairo
-Version: 1.2.6
-Release: %mkrel 1
-Source: http://cairographics.org/releases/%{libname}-%{version}.tar.bz2
-Patch2: pycairo-1.0.0-pygtk.patch
-License: BSD
-Group: Development/Python
-BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: automake1.8
-BuildRequires: cairo-devel >= %{version}
-BuildRequires: libpython-devel python-numeric-devel
-%if !%{build_bootstrap}
-BuildRequires: pygtk2.0-devel 
-%endif
-Requires:	cairo >= %{version}
-Url: http://cairographics.org/pycairo
-Provides: pycairo
+Summary:	A python wrapper for the Cairo libraries
+Name:		python-cairo
+Version:	1.4.0
+Release:	%mkrel 1
+License:	LGPLv2+
+Group:		Development/Python
+Url:		http://cairographics.org/pycairo
+Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.bz2
+BuildRequires:	cairo-devel >= 1.4
+BuildRequires:	libpython-devel
+BuildRequires:	python-numeric-devel
+Requires:	cairo >= 1.4
+Provides:	%{oname}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Python wrapper for the Cairo libraries
+Aset of Python bindings for the cairo graphics library.
+
+%package devel
+Summary:	Development files for %{name}.
+Group:		Development/Python
+Requires:	libcairo-devel => 1.4
+Requires:	%{name} = %{version}-%{release}
+Provides:	%{oname}-devel = %{version}-%{release}
+
+%description devel
+Development files for %{name}.
 
 %prep
-%setup -q -n %{libname}-%{version}
-%patch2 -p1 -b .pygtk
-
-#needed by patch2
-aclocal-1.8
-automake-1.8
-autoheader
-autoconf
+%setup -q -n %{oname}-%{version}
 
 %build
-%configure2_5x \
-%if !%{build_bootstrap}
---with-pygtk
-%endif
+%configure2_5x
 
 %make
 
+%check
+make check
+
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall
+rm -rf %{buildroot}
+%makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog examples
-%{_libdir}/python%{pyver}/site-packages/cairo
+%doc AUTHORS ChangeLog
+%{py_platsitedir}/cairo
+
+%files devel
+%defattr(-,root,root)
+%doc examples
 %{_includedir}/pycairo/pycairo.h
 %{_libdir}/pkgconfig/pycairo.pc
-
-
