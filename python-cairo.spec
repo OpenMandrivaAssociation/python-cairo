@@ -19,7 +19,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Aset of Python bindings for the cairo graphics library.
 
 %package devel
-Summary:	Development files for %{name}.
+Summary:	Development files for %{name}
 Group:		Development/Python
 Requires:	libcairo-devel => 1.4
 Requires:	%{name} = %{version}-%{release}
