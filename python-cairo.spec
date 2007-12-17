@@ -13,7 +13,6 @@ BuildRequires:	libpython-devel
 BuildRequires:	python-numeric-devel
 Requires:	cairo >= 1.4
 Provides:	%{oname}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Aset of Python bindings for the cairo graphics library.
