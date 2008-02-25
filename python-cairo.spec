@@ -2,12 +2,12 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.4.0
+Version:	1.4.12
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Development/Python
-Url:		http://cairographics.org/pycairo
-Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.bz2
+URL:		http://cairographics.org/pycairo
+Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.gz
 BuildRequires:	cairo-devel >= 1.4
 BuildRequires:	libpython-devel
 BuildRequires:	python-numeric-devel
@@ -33,7 +33,6 @@ Development files for %{name}.
 
 %build
 %configure2_5x
-
 %make
 
 %check
