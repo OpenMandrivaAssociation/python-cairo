@@ -3,7 +3,7 @@
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
 Version:	1.4.12
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPLv2+
 Group:		Development/Python
 URL:		http://cairographics.org/pycairo
