@@ -2,7 +2,7 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.8.4
+Version:	1.8.6
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Development/Python
