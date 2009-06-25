@@ -8,10 +8,9 @@ License:	LGPLv2+
 Group:		Development/Python
 URL:		http://cairographics.org/pycairo
 Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.gz
-BuildRequires:	cairo-devel >= 1.8
+BuildRequires:	cairo-devel >= 1.8.6
 BuildRequires:	libpython-devel
-BuildRequires:	python-numeric-devel
-Requires:	cairo >= 1.8
+Requires:	cairo >= 1.8.6
 Provides:	%{oname}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -21,7 +20,6 @@ Aset of Python bindings for the cairo graphics library.
 %package devel
 Summary:	Development files for %{name}
 Group:		Development/Python
-Requires:	libcairo-devel => 1.4
 Requires:	%{name} = %{version}-%{release}
 Provides:	%{oname}-devel = %{version}-%{release}
 
