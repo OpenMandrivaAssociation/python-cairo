@@ -2,7 +2,7 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.8.6
+Version:	1.8.8
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Development/Python
@@ -45,7 +45,7 @@ rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog
+%doc AUTHORS
 %{py_platsitedir}/cairo
 
 %files devel
