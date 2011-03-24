@@ -1,17 +1,18 @@
-%define oname pycairo
+%define oname py2cairo
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.8.8
-Release:	%mkrel 2
+Version:	1.8.10
+Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Development/Python
 URL:		http://cairographics.org/pycairo
 Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.gz
-BuildRequires:	cairo-devel >= 1.8.6
-BuildRequires:	libpython-devel
-Requires:	cairo >= 1.8.6
-Provides:	%{oname}
+Patch0:		pycairo-1.8.10-link.patch
+BuildRequires:	cairo-devel >= 1.8.10
+BuildRequires:	python-devel
+Requires:	cairo >= 1.8.10
+Provides:	pycairo = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -27,14 +28,12 @@ Provides:	%{oname}-devel = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-%setup -q -n %{oname}-%{version}
+%setup -q -n pycairo-%{version}
+%patch0 -p0
 
 %build
 %configure2_5x
 %make
-
-%check
-make check
 
 %install
 rm -rf %{buildroot}
