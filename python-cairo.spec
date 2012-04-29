@@ -7,7 +7,7 @@ Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 URL:		http://cairographics.org/pycairo
-Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.gz
+Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.bz2
 Patch0:		pycairo-1.10.0-link.patch
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python)
