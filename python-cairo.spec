@@ -2,15 +2,15 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.8.10
-Release:	4
+Version:	1.10.0
+Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 URL:		http://cairographics.org/pycairo
 Source:		http://cairographics.org/releases/%{oname}-%{version}.tar.gz
-Patch0:		pycairo-1.8.10-link.patch
-BuildRequires:	cairo-devel >= 1.8.10
-BuildRequires:	python-devel
+Patch0:		pycairo-1.10.0-link.patch
+BuildRequires:	pkgconfig(cairo)
+BuildRequires:	pkgconfig(python)
 
 %description
 Aset of Python bindings for the cairo graphics library.
@@ -25,17 +25,15 @@ Provides:	%{oname}-devel = %{version}-%{release}
 Development files for %{name}.
 
 %prep
-%setup -q -n pycairo-%{version}
-%patch0 -p0
+%setup -qn %{oname}-%{version}
+%apply_patches
 
 %build
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-
 
 %files 
 %doc AUTHORS
@@ -45,3 +43,4 @@ rm -rf %{buildroot}
 %doc examples
 %{_includedir}/pycairo/pycairo.h
 %{_libdir}/pkgconfig/pycairo.pc
+
