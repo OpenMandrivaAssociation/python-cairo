@@ -27,8 +27,10 @@ Development files for %{name}.
 %prep
 %setup -qn %{oname}-%{version}
 %apply_patches
+touch ChangeLog
 
 %build
+autoreconf -fi
 %configure2_5x
 %make
 
