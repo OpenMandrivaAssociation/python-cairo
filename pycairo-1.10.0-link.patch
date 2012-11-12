@@ -1,0 +1,11 @@
+--- py2cairo-1.10.0/src/Makefile.am~	2009-08-30 04:59:46.000000000 +0200
++++ py2cairo-1.10.0/src/Makefile.am	2012-04-29 19:59:24.518525748 +0200
+@@ -10,7 +10,7 @@
+ 
+ pycairoexec_LTLIBRARIES = _cairo.la
+ _cairo_la_LDFLAGS = -module -avoid-version -export-symbols-regex init_cairo
+-_cairo_la_LIBADD = $(CAIRO_LIBS)
++_cairo_la_LIBADD = $(CAIRO_LIBS) -lpython$(PYTHON_VERSION)
+ _cairo_la_CPPFLAGS = $(PYTHON_INCLUDES) $(CAIRO_CFLAGS)
+ _cairo_la_SOURCES = \
+   cairomodule.c \
