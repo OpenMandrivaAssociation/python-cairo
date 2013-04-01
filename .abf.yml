@@ -1,2 +1,3 @@
 sources:
-  "py2cairo-1.10.0.tar.bz2": 2efa8dfafbd6b8e492adaab07231556fec52d6eb
+  py2cairo-1.10.0.tar.bz2: 2efa8dfafbd6b8e492adaab07231556fec52d6eb
+  pycairo-1.10.0.tar.bz2: b4283aa1cc9aafd12fd72ad371303a486da1d014
