@@ -1,0 +1,34 @@
+diff --git a/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Build.py b/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Build.py
+index 6ac8bea..146da4d 100644
+--- a/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Build.py
++++ b/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Build.py
+@@ -151,6 +151,7 @@ class BuildContext(Context.Context):
+ 				f.close()
+ 		self.init_dirs()
+ 	def store(self):
++		return
+ 		data={}
+ 		for x in SAVED_ATTRS:
+ 			data[x]=getattr(self,x)
+diff --git a/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Context.py b/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Context.py
+index f4bea3e..5c7e14d 100644
+--- a/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Context.py
++++ b/pycairo-1.10.0/.waf3-1.6.4-e3c1e08604b18a10567cfcd2d02eb6e6/waflib/Context.py
+@@ -51,6 +51,8 @@ class store_context(type):
+ 		global classes
+ 		classes.insert(0,cls)
+ ctx=store_context('ctx',(object,),{})
++class node_class(waflib.Node.Node):
++    pass
+ class Context(ctx):
+ 	errors=Errors
+ 	tools={}
+@@ -60,8 +62,6 @@ class Context(ctx):
+ 		except KeyError:
+ 			global run_dir
+ 			rd=run_dir
+-		class node_class(waflib.Node.Node):
+-			pass
+ 		self.node_class=node_class
+ 		self.node_class.__module__="waflib.Node"
+ 		self.node_class.__name__="Nod3"

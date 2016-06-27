@@ -5,7 +5,7 @@
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
 Version:	1.10.0
-Release:	11
+Release:	12
 License:	LGPLv2+
 Group:		Development/Python
 Url:		http://cairographics.org/pycairo
@@ -15,6 +15,7 @@ Source2:	python-cairo.rpmlintrc
 Patch0:		pycairo-1.10.0-link.patch
 Patch1:		pycairo-1.10.0-fix-waf-build.patch
 Patch2:		cairo-waf-use-python-config-as-shell-script.patch
+Patch3:		81_pickling-again.patch
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python3)
 
@@ -65,6 +66,7 @@ python3 %{oname3}-%{version}/waf --version
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
+%patch3 -p1
 
 mv %{oname}-%{version} python2
 mv %{oname3}-%{version} python3
@@ -84,6 +86,7 @@ python waf build
 popd
 
 %install
+
 pushd python2
 %makeinstall_std
 popd
@@ -109,4 +112,3 @@ popd
 %attr(755, root, root) %doc python3/examples
 %{_includedir}/pycairo/pycairo.h
 %{_libdir}/pkgconfig/pycairo.pc
-
