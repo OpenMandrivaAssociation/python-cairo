@@ -1,16 +1,14 @@
 %define debug_package %{nil}
-%define oname py2cairo
-%define oname3 pycairo
+%define oname pycairo
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.10.0
-Release:	12
+Version:	1.13.1
+Release:	1
 License:	LGPLv2+
 Group:		Development/Python
-Url:		http://cairographics.org/pycairo
-Source0:	http://cairographics.org/releases/%{oname}-%{version}.tar.bz2
-Source1:	http://cairographics.org/releases/%{oname3}-%{version}.tar.bz2
+Url:		http://pycairo.readthedocs.io/
+Source0:	https://github.com/pygobject/pycairo/archive/v%{version}.tar.gz
 Source2:	python-cairo.rpmlintrc
 Patch0:		pycairo-1.10.0-link.patch
 Patch1:		pycairo-1.10.0-fix-waf-build.patch
@@ -55,53 +53,41 @@ Development files for python2-cairo.
 
 %prep
 %setup -qn %{oname}-%{version} -c -a 0
-%setup -qn %{oname3}-%{version} -c -a 1
 
-# Ensure that ./waf has created the cached unpacked version
-# of the wafadmin source tree.
-# This will be created to a subdirectory like
-#    .waf3-1.5.18-a7b91e2a913ce55fa6ecdf310df95752
-python3 %{oname3}-%{version}/waf --version
+cp -a %{oname}-%{version} python2
+mv %{oname}-%{version} python3
 
-%patch0 -p0
-%patch1 -p0
-%patch2 -p0
-%patch3 -p1
-
-mv %{oname}-%{version} python2
-mv %{oname3}-%{version} python3
-touch python2/ChangeLog
-#touch python3/ChangeLog
 
 %build
 pushd python2
-autoreconf -fi
-%configure PYTHON=python2
-%make
+PYTHON=python2 python2 setup.py build
 popd
 
 pushd python3
-python waf configure --prefix=%{_prefix} --libdir=%{_libdir} || exit 0
-python waf build
+python setup.py build
 popd
 
 %install
 
 pushd python2
-%makeinstall_std
+python2 setup.py install --root="%{buildroot}"
 popd
 
 pushd python3
-python waf install --destdir="%{buildroot}" || exit 0
+python setup.py install --root="%{buildroot}"
 popd
 
+%if "%{_lib}" != "lib"
+mv %{buildroot}%{_prefix}/lib/pkgconfig %{buildroot}%{_libdir}/
+%endif
+
 %files 
-%doc python3/AUTHORS
 %{py3_platsitedir}/cairo
+%{py3_platsitedir}/*.egg-info
 
 %files -n python2-cairo
-%attr(755, root, root) %doc python2/AUTHORS
 %{py2_platsitedir}/cairo
+%{py2_platsitedir}/*.egg-info
 
 %files devel
 %attr(755, root, root) %doc python2/examples
