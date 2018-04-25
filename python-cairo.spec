@@ -7,7 +7,7 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.14.0
+Version:	1.17.0
 Release:	1
 License:	LGPLv2+
 Group:		Development/Python
@@ -51,7 +51,7 @@ Group:		Development/Python
 Requires:	python2-cairo = %{version}-%{release}
 Provides:	python2-cairo-devel = %{version}-%{release}
 
-%description devel
+%description -n python2-cairo-devel
 Development files for python2-cairo.
 
 %prep
