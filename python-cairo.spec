@@ -19,6 +19,7 @@ Patch1:		pycairo-1.10.0-fix-waf-build.patch
 Patch2:		cairo-waf-use-python-config-as-shell-script.patch
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python2)
 
 %description
 A set of Python bindings for the cairo graphics library.
