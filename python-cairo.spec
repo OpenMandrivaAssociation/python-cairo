@@ -12,7 +12,7 @@ Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 Url:		http://cairographics.org/pycairo
-Source0:	https://github.com/pygobject/pycairo/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/pygobject/pycairo/archive/v%{version}/%{oname}-%{version}.tar.gz
 Source1:	python-cairo.rpmlintrc
 Patch0:		pycairo-1.10.0-link.patch
 Patch1:		pycairo-1.10.0-fix-waf-build.patch
