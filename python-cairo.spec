@@ -6,7 +6,7 @@
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
 Version:	1.20.0
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Development/Python
 Url:		http://cairographics.org/pycairo
@@ -39,11 +39,11 @@ sed -i -e 's,\(libdir.*\)"lib",\1"%{_lib}",g' setup.py
 cp -a . %{py3dir}
 
 %build
-%py3_build
+%py_build
 
 
 %install
-%py3_install
+%py_install
 
 %files
 %{py3_platsitedir}/*cairo*
