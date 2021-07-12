@@ -1,4 +1,5 @@
-%define debug_package %{nil}
+#define debug_package %{nil}
+%define _empty_manifest_terminate_build 0
 %define oname pycairo
 %define py3_build CFLAGS="%{optflags}" %{__python3} setup.py build --executable="%{__python3} -s"
 %define py3_install CFLAGS="%{optflags}" %{__python3} setup.py install --root="%{buildroot}"
