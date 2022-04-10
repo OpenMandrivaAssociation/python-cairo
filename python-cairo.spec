@@ -6,18 +6,19 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.20.1
-Release:	2
+Version:	1.21.0
+Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 Url:		http://cairographics.org/pycairo
 Source0:	https://github.com/pygobject/pycairo/archive/v%{version}/%{oname}-%{version}.tar.gz
 Source1:	python-cairo.rpmlintrc
-Patch0:		pycairo-1.10.0-link.patch
-Patch1:		pycairo-1.10.0-fix-waf-build.patch
-Patch2:		cairo-waf-use-python-config-as-shell-script.patch
+#Patch0:		pycairo-1.10.0-link.patch
+#Patch1:		pycairo-1.10.0-fix-waf-build.patch
+#Patch2:		cairo-waf-use-python-config-as-shell-script.patch
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python)
+BuildRequires:  python3dist(setuptools)
 
 %description
 A set of Python bindings for the cairo graphics library.
