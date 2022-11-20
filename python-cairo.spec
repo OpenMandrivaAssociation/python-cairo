@@ -19,6 +19,8 @@ Source1:	python-cairo.rpmlintrc
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
+BuildRequires:  python3dist(wheel)
+BuildRequires:  python3dist(pip)
 
 %description
 A set of Python bindings for the cairo graphics library.
