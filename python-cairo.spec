@@ -53,5 +53,5 @@ cp -a . %{py3dir}
 %{py3_platsitedir}/*cairo*
 
 %files devel
-%{_includedir}/pycairo/py3cairo.h
-%{_libdir}/pkgconfig/py3cairo.pc
+#{_includedir}/pycairo/py3cairo.h
+#{_libdir}/pkgconfig/py3cairo.pc
