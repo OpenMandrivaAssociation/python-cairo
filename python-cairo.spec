@@ -6,12 +6,12 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.23.0
+Version:	1.24.0
 Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 Url:		http://cairographics.org/pycairo
-Source0:	https://github.com/pygobject/pycairo/archive/v%{version}/%{oname}-%{version}.tar.gz
+Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/pycairo-%{version}.tar.gz
 Source1:	python-cairo.rpmlintrc
 #Patch0:		pycairo-1.10.0-link.patch
 #Patch1:		pycairo-1.10.0-fix-waf-build.patch
