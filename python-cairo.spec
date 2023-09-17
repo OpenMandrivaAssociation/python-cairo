@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(wheel)
 BuildRequires:  python3dist(pip)
+BuildRequires:  meson
 
 %description
 A set of Python bindings for the cairo graphics library.
@@ -39,15 +40,13 @@ Aset of Python bindings for the cairo graphics library.
 
 %prep
 %setup -qn %{oname}-%{version}
-sed -i -e 's,\(libdir.*\)"lib",\1"%{_lib}",g' setup.py
-cp -a . %{py3dir}
 
 %build
-%py_build
-
+%meson
+%meson_build
 
 %install
-%py_install
+%meson_install
 
 %files
 %{py3_platsitedir}/*cairo*
