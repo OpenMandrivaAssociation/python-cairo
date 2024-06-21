@@ -6,7 +6,7 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.24.0
+Version:	1.26.1
 Release:	1
 License:	LGPLv2+
 Group:		Development/Python
