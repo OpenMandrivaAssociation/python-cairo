@@ -14,9 +14,7 @@ Group:		Development/Python
 Url:		http://cairographics.org/pycairo
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/pycairo-%{version}.tar.gz
 Source1:	python-cairo.rpmlintrc
-#Patch0:		pycairo-1.10.0-link.patch
-#Patch1:		pycairo-1.10.0-fix-waf-build.patch
-#Patch2:		cairo-waf-use-python-config-as-shell-script.patch
+
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
