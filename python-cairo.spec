@@ -1,3 +1,4 @@
+%define _disable_ld_no_undefined 1
 #define debug_package %{nil}
 %define _empty_manifest_terminate_build 0
 %define oname pycairo
