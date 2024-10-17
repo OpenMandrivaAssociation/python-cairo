@@ -11,7 +11,7 @@ Version:	1.27.0
 Release:	1
 License:	LGPLv2+
 Group:		Development/Python
-Url:		http://cairographics.org/pycairo
+Url:		https://cairographics.org/pycairo
 Source0:	https://github.com/pygobject/pycairo/releases/download/v%{version}/pycairo-%{version}.tar.gz
 Source1:	python-cairo.rpmlintrc
 
