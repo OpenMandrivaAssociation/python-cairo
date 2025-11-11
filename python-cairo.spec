@@ -7,8 +7,8 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.28.0
-Release:	2
+Version:	1.29.0
+Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 Url:		https://cairographics.org/pycairo
@@ -41,7 +41,8 @@ Aset of Python bindings for the cairo graphics library.
 %setup -qn %{oname}-%{version}
 
 %build
-%meson
+%meson \
+        -Dno-x11=false
 %meson_build
 
 %install
