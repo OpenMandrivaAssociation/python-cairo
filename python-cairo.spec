@@ -7,8 +7,8 @@
 
 Summary:	A python wrapper for the Cairo libraries
 Name:		python-cairo
-Version:	1.29.0
-Release:	3
+Version:	1.29.2
+Release:	1
 License:	LGPLv2+
 Group:		Development/Python
 Url:		https://cairographics.org/pycairo
