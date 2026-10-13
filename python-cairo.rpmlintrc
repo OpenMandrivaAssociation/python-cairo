@@ -1,1 +1,3 @@
-addFilter("E: unstripped-binary-or-object")
+# The unstripped warning is from the extension module. The missing check
+# section keeps this filter used when only the source package is linted.
+addFilter("unstripped-binary-or-object|no-%check-section")
